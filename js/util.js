@@ -20,6 +20,9 @@ window.util = (function () {
     },
     coatColors: COAT_COLORS,
     eyesColors: EYE_COLORS,
-    setup: gameSetup
+    setup: gameSetup,
+    getRandomNumber: function (min, max) {
+      return Math.floor(Math.random() * (max + 1 - min) + min);
+    }
   };
 })();
