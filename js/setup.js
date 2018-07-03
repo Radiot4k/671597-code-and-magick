@@ -10,6 +10,15 @@
   var fireball = window.util.setup.querySelector('.setup-fireball-wrap');
   var fireballInput = window.util.setup.querySelector('.setup-wizard-form input[name="fireball-color"]');
 
+  var wizard = {
+    onEyesChange: function (color) {
+      return color;
+    },
+    onCoatChange: function (color) {
+      return color;
+    }
+  };
+
   var setValue = function (inp, colors) {
     var currentColor;
     var ind;
@@ -25,11 +34,13 @@
   var onWizardCoatClick = function () {
     setValue(wizardCoatInput, window.util.coatColors);
     wizardCoat.style.fill = wizardCoatInput.value;
+    wizard.onCoatChange(wizardCoat.style.fill);
   };
 
   var onWizardEyesClick = function () {
     setValue(wizardEyesInput, window.util.eyesColors);
     wizardEyes.style.fill = wizardEyesInput.value;
+    wizard.onEyesChange(wizardEyes.style.fill);
   };
 
   var onFireballClick = function () {
@@ -40,6 +51,8 @@
   wizardCoat.addEventListener('click', onWizardCoatClick);
   wizardEyes.addEventListener('click', onWizardEyesClick);
   fireball.addEventListener('click', onFireballClick);
+
+  window.wizard = wizard;
 })();
 
 
